@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+def configs = rootProject.ext.android
+def librarys = rootProject.ext.dependencies
+android {
+    signingConfigs {
+        config {
+            keyAlias 'yusong'
+            keyPassword '123456'
+            storeFile file('../key1.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion configs["compileSdkVersion"]
+    defaultConfig {
+        applicationId configs["APPID"]
+        versionCode configs["versionCode"]
+        versionName configs["versionName"]
+        minSdkVersion configs["minSdkVersion"]
+        targetSdkVersion configs["targetSdkVersion"]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        resConfigs "zh"
+        lintOptions {
+            checkReleaseBuilds false
+            abortOnError false
+        }
+        ndk {
+            abiFilters "armeabi"//, "armeabi-v7a", "arm64-v8a" //,"mips","x86" //
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true // 是否混淆
+            zipAlignEnabled true// Zipalign优化
+            shrinkResources true // 是否去除无效的资源文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+//        applicationVariants.all { variant ->
+//            variant.outputs.each { output ->
+//                output.outputFile = new File(output.outputFile.parent,
+//                        configs[""] + "-v" + defaultConfig.versionName + ".apk");
+//            }
+//        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+}
