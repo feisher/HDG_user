@@ -32,17 +32,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation librarys["appcompat-v7"]
-    implementation librarys["multidex"]
-    implementation librarys["toast"]
-    implementation librarys["dialog"]
-    implementation librarys["http"]
-    implementation librarys["rxjava2"]
-    implementation librarys["gson"]
-    implementation librarys["eventbus"]
-    implementation librarys["cockroach"]
-    implementation librarys["glide"]
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api librarys["appcompat-v7"]
+    api librarys["multidex"]
+    api librarys["toast"]
+    api librarys["dialog"]
+    api librarys["http"]
+    api librarys["rxjava2"]
+    api librarys["gson"]
+    api librarys["eventbus"]
+    api librarys["cockroach"]
+    api librarys["glide"]
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 }
 repositories {
