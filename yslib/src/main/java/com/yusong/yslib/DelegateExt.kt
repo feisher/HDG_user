@@ -4,10 +4,9 @@ import android.app.Activity
 import android.app.Application
 import android.app.Fragment
 import android.content.Context
-import android.view.View
 import android.widget.Toast
+import com.google.gson.Gson
 import com.sdsmdg.tastytoast.TastyToast
-import com.yusong.yslib.mvp.BasePresenterImpl
 
 var gToast: Toast? = null
 /**
@@ -48,13 +47,16 @@ fun Fragment.toast(message: String, type: Int) {
 fun  Fragment.toast(message: String) {
     toast(message, TastyToast.DEFAULT)
 }
-var Context.app: ConfigApplication
+var Context.app: App
     get() {
-        return applicationContext as ConfigApplication
+        return applicationContext as App
     }
     set(value) {
         app = value
     }
+inline fun <reified T : Any> Gson.fromJson(json: String?): T {
+    return Gson().fromJson(json, T::class.java)
+}
 
 
 

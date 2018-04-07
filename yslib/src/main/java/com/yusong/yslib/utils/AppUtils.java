@@ -17,7 +17,7 @@ import android.util.SparseIntArray;
 import android.util.SparseLongArray;
 
 
-import com.yusong.yslib.ConfigApplication;
+import com.yusong.yslib.App;
 
 import java.io.File;
 import java.io.IOException;
@@ -299,7 +299,7 @@ public class AppUtils {
     public static boolean isNetFileAvailable(final String strUrl) {
 
         final InputStream[] netFileInputStream = {null};
-        ConfigApplication.Companion.getPoolExecutor().execute(new Runnable() {
+        App.Companion.getPoolExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 URL url = null;

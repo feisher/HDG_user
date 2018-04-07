@@ -5,7 +5,7 @@ import com.google.gson.stream.JsonReader;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.exception.HttpException;
 import com.lzy.okgo.request.base.Request;
-import com.yusong.yslib.ConfigApplication;
+import com.yusong.yslib.App;
 import com.yusong.yslib.event.EventCenter;
 import com.yusong.yslib.utils.SPUtils;
 
@@ -33,7 +33,7 @@ public abstract class JsonCallback<T> extends AbsCallback<T> {
     @Override
     public void onStart(Request<T, ? extends Request> request) {
         super.onStart(request);
-        request.headers("Authorization","Bearer "+ SPUtils.get(ConfigApplication.Companion.getContext(),"token",""));
+        request.headers("Authorization","Bearer "+ SPUtils.get(App.Companion.getContext(),"token",""));
     }
     @Override
     public void onError(com.lzy.okgo.model.Response<T> response) {
@@ -43,13 +43,13 @@ public abstract class JsonCallback<T> extends AbsCallback<T> {
             exception.printStackTrace();
         }
         if (exception instanceof UnknownHostException || exception  instanceof ConnectException) {
-            ConfigApplication.Companion.toast("连接失败，请检查网络！");
+            App.Companion.toast("连接失败，请检查网络！");
         }else if (exception instanceof SocketTimeoutException){
-            ConfigApplication.Companion.toast("网络连接超时！");
+            App.Companion.toast("网络连接超时！");
         }else if (exception instanceof HttpException){
-            ConfigApplication.Companion.toast(((HttpException) exception).code()+"服务器开小差了！");
+            App.Companion.toast(((HttpException) exception).code()+"服务器开小差了！");
         }else{
-            ConfigApplication.Companion.toast(""+exception.getMessage());
+            App.Companion.toast(""+exception.getMessage());
         }
     }
     @Override
@@ -85,13 +85,13 @@ public abstract class JsonCallback<T> extends AbsCallback<T> {
                 return (T)o;
             }else if(code ==3){
                 EventBus.getDefault().post(new EventCenter<String>(EventCenter.TOKEN_INVALID,"登陆超时"));
-                SPUtils.put(ConfigApplication.Companion.getContext(),"token", "");
-                SPUtils.put(ConfigApplication.Companion.getContext(),SPUtils.K_SESSION_TIMEOUT, true);
+                SPUtils.put(App.Companion.getContext(),"token", "");
+                SPUtils.put(App.Companion.getContext(),SPUtils.K_SESSION_TIMEOUT, true);
                 throw new IllegalStateException(""+o.message);
             }else if(code ==7){
-                SPUtils.put(ConfigApplication.Companion.getContext(),SPUtils.K_SESSION_TIMEOUT, true);
+                SPUtils.put(App.Companion.getContext(),SPUtils.K_SESSION_TIMEOUT, true);
                 EventBus.getDefault().post(new EventCenter<String>(EventCenter.TOKEN_INVALID,"账号在其他设备登陆"));
-                SPUtils.put(ConfigApplication.Companion.getContext(),"token", "");
+                SPUtils.put(App.Companion.getContext(),"token", "");
                 throw new IllegalStateException(""+o.message);//账号在其他设备登陆
             }else {
                 throw new IllegalStateException(""+o.message);

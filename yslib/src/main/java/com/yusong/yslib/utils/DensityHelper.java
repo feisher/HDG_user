@@ -22,7 +22,7 @@ public class DensityHelper {
      * @param context
      * @param designWidth 设计稿的宽度
      */
-    private static void resetDensity(Context context, float designWidth){
+    public static void resetDensity(Context context, float designWidth){
         Point size = new Point();
         ((WindowManager)context.getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
 
@@ -39,7 +39,7 @@ public class DensityHelper {
      *
      * @param context
      */
-    private static void restoreDensity(Context context){
+    public static void restoreDensity(Context context){
         context.getResources().getDisplayMetrics().setToDefaults();
         DisplayMetrics metrics = getMetricsOnMiui(context.getResources());
         if(metrics != null) {

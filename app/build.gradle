@@ -3,15 +3,27 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 def configs = rootProject.ext.android
 def librarys = rootProject.ext.dependencies
+
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
 android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
     signingConfigs {
         config {
-            keyAlias 'yusong'
+            keyAlias 'feisher'
             keyPassword '123456'
-            storeFile file('../key1.jks')
+            storeFile file('D:/pd/key1.jks')
             storePassword '123456'
         }
     }
@@ -32,6 +44,13 @@ android {
         ndk {
             abiFilters "armeabi"//, "armeabi-v7a", "arm64-v8a" //,"mips","x86" //
         }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [ moduleName : project.getName() ]
+//            }
+//        }
+
+
     }
     sourceSets {
         main {
@@ -40,9 +59,9 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true // 是否混淆
-            zipAlignEnabled true// Zipalign优化
-            shrinkResources true // 是否去除无效的资源文件
+            minifyEnabled false // 是否混淆
+            zipAlignEnabled false// Zipalign优化
+            shrinkResources false // 是否去除无效的资源文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
         }
@@ -66,4 +85,8 @@ dependencies {
     api librarys["design"]
     api librarys["appcompat-v7"]
     api librarys["constraintLayout"]
+    api librarys["arouter"]
+    //    annotationProcessor librarys["arouter-compiler"]
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    kapt librarys["arouter-compiler"]
 }

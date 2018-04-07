@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
 
-import com.yusong.yslib.ConfigApplication;
 import com.yusong.yslib.http.GsonUtil;
 
 import java.lang.reflect.Method;

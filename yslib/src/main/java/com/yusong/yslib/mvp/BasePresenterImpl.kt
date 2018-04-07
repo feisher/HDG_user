@@ -1,13 +1,11 @@
 package com.yusong.yslib.mvp
 
-import android.app.Activity
 import android.content.Context
-import android.widget.Toast
 
 import com.hss01248.dialog.StyledDialog
 import com.sdsmdg.tastytoast.TastyToast
 
-import com.yusong.yslib.ConfigApplication
+import com.yusong.yslib.App
 import com.yusong.yslib.event.EventCenter
 import com.yusong.yslib.toast
 
@@ -41,9 +39,9 @@ abstract class BasePresenterImpl<V : BaseView> : BasePresenter<V> {
     fun onEventMainThread(center: EventCenter<*>?) {
         if (null != center) {
             if (center.eventCode == EventCenter.TOKEN_INVALID) {
-                ConfigApplication.exit(false)
+                App.exit(false)
                 try {
-                    //                    YsRouter.gotoActivity((Activity) mContext,ConfigApplication.LOGIN_PATH,YsRouter.NORMAL,"",true);
+                    //                    YsRouter.gotoActivity((Activity) mContext,App.LOGIN_PATH,YsRouter.NORMAL,"",true);
                 } catch (e: Exception) {
                 }
 
@@ -82,10 +80,10 @@ abstract class BasePresenterImpl<V : BaseView> : BasePresenter<V> {
             StyledDialog.dismissLoading()
         }
         fun toast(message: String, type: Int) {
-                    ConfigApplication.instance!!.toast(message,type)
+                    App.instance!!.toast(message,type)
         }
         fun toast(message: String) {
-            ConfigApplication.instance!!.toast(message,TastyToast.DEFAULT)
+            App.instance!!.toast(message,TastyToast.DEFAULT)
         }
     }
 
