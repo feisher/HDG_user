@@ -16,6 +16,7 @@ class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         ARouter.getInstance().inject(this)
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_test)
         textView.text = name+"\n 点击返回"
         textView.setOnClickListener {

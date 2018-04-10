@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-def configs = rootProject.ext.android
-def librarys = rootProject.ext.dependencies
 kapt {
     arguments {
         arg("moduleName", project.getName())
     }
 }
+def configs = rootProject.ext.android
+def librarys = rootProject.ext.dependencies
 android {
     compileSdkVersion configs["compileSdkVersion"]
     defaultConfig {
@@ -25,7 +25,6 @@ android {
         ndk {
             abiFilters "armeabi"//, "armeabi-v7a","arm64-v8a" //,"mips","x86" //
         }
-
     }
     buildTypes {
         release {
@@ -38,7 +37,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testApi 'junit:junit:4.12'
     api librarys["appcompat-v7"]
     api librarys["multidex"]
     api librarys["toast"]
@@ -50,6 +52,7 @@ dependencies {
     api librarys["cockroach"]
     api librarys["glide"]
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+//    api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     api librarys["arouter"]
 //    annotationProcessor librarys["arouter-compiler"]
     kapt librarys["arouter-compiler"]

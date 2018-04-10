@@ -21,9 +21,9 @@ android {
     }
     signingConfigs {
         config {
-            keyAlias 'feisher'
+            keyAlias 'yusong'
             keyPassword '123456'
-            storeFile file('D:/pd/key1.jks')
+            storeFile file('../key1.jks')
             storePassword '123456'
         }
     }
@@ -44,13 +44,6 @@ android {
         ndk {
             abiFilters "armeabi"//, "armeabi-v7a", "arm64-v8a" //,"mips","x86" //
         }
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments = [ moduleName : project.getName() ]
-//            }
-//        }
-
-
     }
     sourceSets {
         main {
@@ -81,12 +74,17 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testApi 'junit:junit:4.12'
     implementation project(':yslib')
-    api librarys["design"]
-    api librarys["appcompat-v7"]
-    api librarys["constraintLayout"]
-    api librarys["arouter"]
+    implementation librarys["design"]
+    implementation librarys["appcompat-v7"]
+    implementation librarys["constraintLayout"]
+    implementation librarys["arouter"]
     //    annotationProcessor librarys["arouter-compiler"]
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     kapt librarys["arouter-compiler"]
+    implementation project(':plugin_login')
 }

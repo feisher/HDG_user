@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.Window
@@ -41,6 +42,7 @@ abstract class MVPBaseActivity<V : BaseView, T : BasePresenterImpl<V>> : AppComp
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT//竖屏
         if (layoutId() != 0) {
             setContentView(layoutId())
+
             AndroidBug5497Workaround.assistActivity(this)//软键盘问题
             adaptiveSystemVersions()
         }
@@ -50,7 +52,7 @@ abstract class MVPBaseActivity<V : BaseView, T : BasePresenterImpl<V>> : AppComp
         initListener()
     }
 
-    protected fun initListener() {
+    open fun initListener() {
         decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             if (visibility == 0) {//系统状态栏处于显示状态
                 onWindowFocusChanged(true)
@@ -108,10 +110,18 @@ abstract class MVPBaseActivity<V : BaseView, T : BasePresenterImpl<V>> : AppComp
         iv.visibility = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) View.VISIBLE else View.GONE
     }
 
-    fun <T> getInstance(o: Activity, i: Int): T? {
+    fun <T> getInstance(o: Any, i: Int): T? {
         try {
-            return (o::class.typeParameters[i] as Class<T>).newInstance()
-        } catch (e: Exception) {
+            return ((o.javaClass
+                    .genericSuperclass as ParameterizedType).getActualTypeArguments()[i] as Class<T>)
+                    .newInstance()
+        } catch (e: Fragment.InstantiationException) {
+            e.printStackTrace()
+        } catch (e: IllegalAccessException) {
+            e.printStackTrace()
+        } catch (e: ClassCastException) {
+            e.printStackTrace()
+        } catch (e: java.lang.InstantiationException) {
             e.printStackTrace()
         }
 

@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "config.gradle"
+//apply plugin: 'com.alibaba.arouter'
 buildscript {
     ext.kotlin_version = '1.2.30'
     repositories {
@@ -10,6 +11,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//        classpath "com.alibaba:arouter-register:1.0.0"
 
 
     }

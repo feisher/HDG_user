@@ -13,7 +13,7 @@ var gToast: Toast? = null
  *
  * Created by Administrator on 2018/3/31/031.
  */
-fun Application.toast(message: String, type: Int) {
+fun Context.toast(message: String, type: Int) {
     if (gToast != null) {
         gToast!!.cancel()
     }
@@ -21,32 +21,11 @@ fun Application.toast(message: String, type: Int) {
     gToast!!.show()
 }
 
-fun  Application.toast(message: String) {
+fun  Context.toast(message: String) {
     toast(message, TastyToast.DEFAULT)
 }
 
-fun Activity.toast(message: String, type: Int) {
-    if (gToast != null) {
-        gToast!!.cancel()
-    }
-    gToast = TastyToast.makeText(this, message , 0, type)
-    gToast!!.show()
-}
-
-fun  Activity.toast(message: String) {
-    toast(message, TastyToast.DEFAULT)
-}
-fun Fragment.toast(message: String, type: Int) {
-    if (gToast != null) {
-        gToast!!.cancel()
-    }
-    gToast = TastyToast.makeText(this.activity, message , 0, type)
-    gToast!!.show()
-}
-
-fun  Fragment.toast(message: String) {
-    toast(message, TastyToast.DEFAULT)
-}
+//扩展属性
 var Context.app: App
     get() {
         return applicationContext as App
@@ -54,6 +33,7 @@ var Context.app: App
     set(value) {
         app = value
     }
+//扩展方法
 inline fun <reified T : Any> Gson.fromJson(json: String?): T {
     return Gson().fromJson(json, T::class.java)
 }

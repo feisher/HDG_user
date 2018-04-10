@@ -299,7 +299,7 @@ public class AppUtils {
     public static boolean isNetFileAvailable(final String strUrl) {
 
         final InputStream[] netFileInputStream = {null};
-        App.Companion.getPoolExecutor().execute(new Runnable() {
+        App.Companion.getPool().execute(new Runnable() {
             @Override
             public void run() {
                 URL url = null;

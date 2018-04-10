@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yusong.plugin_login">
+
+    <application>
+        <activity android:name=".ui.Test2Activity"></activity>
+        <activity android:name=".ui.login.LoginActivity"/>
+    </application>
+
+</manifest>

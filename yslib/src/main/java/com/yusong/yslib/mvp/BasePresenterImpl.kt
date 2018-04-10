@@ -3,11 +3,9 @@ package com.yusong.yslib.mvp
 import android.content.Context
 
 import com.hss01248.dialog.StyledDialog
-import com.sdsmdg.tastytoast.TastyToast
 
 import com.yusong.yslib.App
 import com.yusong.yslib.event.EventCenter
-import com.yusong.yslib.toast
 
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -54,7 +52,7 @@ abstract class BasePresenterImpl<V : BaseView> : BasePresenter<V> {
      * EventBus接收消息
      * @param center 获取事件总线信息
      */
-    protected fun onEventComing(center: EventCenter<*>) {
+    open  fun onEventComing(center: EventCenter<*>?) {
 
     }
 
@@ -68,7 +66,7 @@ abstract class BasePresenterImpl<V : BaseView> : BasePresenter<V> {
         }
     }
 
-    protected fun useEvenBus(): Boolean {
+    open fun useEvenBus(): Boolean {
         return true
     }
 
@@ -78,12 +76,6 @@ abstract class BasePresenterImpl<V : BaseView> : BasePresenter<V> {
         }
         fun hideLoading() {
             StyledDialog.dismissLoading()
-        }
-        fun toast(message: String, type: Int) {
-                    App.instance!!.toast(message,type)
-        }
-        fun toast(message: String) {
-            App.instance!!.toast(message,TastyToast.DEFAULT)
         }
     }
 

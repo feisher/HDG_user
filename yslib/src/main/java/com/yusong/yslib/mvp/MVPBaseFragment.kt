@@ -57,9 +57,12 @@ abstract class MVPBaseFragment<V : BaseView, T : BasePresenterImpl<V>> : Fragmen
 
     override fun getContext(): FragmentActivity? = activity
 
-    fun <T> getInstance(o: Fragment, i: Int): T? {
+
+    fun <T> getInstance(o: Any, i: Int): T? {
         try {
-            return (o::class.typeParameters[i] as Class<T>).newInstance()
+            return ((o.javaClass
+                    .genericSuperclass as ParameterizedType).getActualTypeArguments()[i] as Class<T>)
+                    .newInstance()
         } catch (e: Fragment.InstantiationException) {
             e.printStackTrace()
         } catch (e: IllegalAccessException) {
