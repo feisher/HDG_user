@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_title_layout"
-    android:layout_width="750pt"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -25,7 +25,7 @@
             android:layout_height="80pt"
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
-            android:paddingLeft="20pt"
+            android:padding="20pt"
             android:drawableLeft="@mipmap/ic_back"
             android:drawablePadding="10pt"
             android:text=""
@@ -36,9 +36,9 @@
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="80pt"
             android:layout_centerInParent="true"
-            android:text="E休充电站"
+            android:text="@string/app_name"
             android:textColor="@color/half_translucent"
             android:textSize="34pt" />
 
@@ -50,7 +50,7 @@
             android:gravity="center_vertical"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:paddingRight="20pt"
+            android:padding="20pt"
             android:drawablePadding="10pt"
             android:text=""
             android:textSize="32pt"

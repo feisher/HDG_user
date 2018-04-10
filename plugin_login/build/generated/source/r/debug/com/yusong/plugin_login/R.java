@@ -1304,7 +1304,8 @@ public final class R {
         public static int ic_pic = 0x7f110005;
         public static int ic_search = 0x7f110006;
         public static int ic_sms = 0x7f110007;
-        public static int iv_title_white = 0x7f110008;
+        public static int iv_title = 0x7f110008;
+        public static int iv_title_white = 0x7f110009;
     }
     public static final class string {
         public static int abc_action_bar_home_description = 0x7f150001;

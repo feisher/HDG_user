@@ -36,8 +36,11 @@ class LoginActivity : MVPBaseActivity<LoginContract.View, LoginPresenter>(), Log
         d!!.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight())
         tv_title.setCompoundDrawables(d, null, null, null)
         tv_title.text = ""
-        mPresenter!!.onEventComing(null)
-//                intentMsg = YsRouter.getIntentData(this, String.class);
+        val d1 = ContextCompat.getDrawable(this, R.mipmap.iv_title)
+        d1!!.setBounds(0, 0, d1.getIntrinsicWidth(), d1.getIntrinsicHeight())
+        tv_app_name.setCompoundDrawables(d1, null, null, null)
+        tv_app_name.text = ""
+//        mPresenter!!.onEventComing(null)
     }
 
     override fun onClick(v: View?) {
@@ -45,14 +48,14 @@ class LoginActivity : MVPBaseActivity<LoginContract.View, LoginPresenter>(), Log
         when (v?.id) {
             R.id.tv_back ->
              finish()
-//            R.id.tv_authcode_login ->
-//                mPresenter!!.invalidate(ll_img_authcode,et_account, et_pwd, tv_authcode, tv_authcode_login, iv_pwd_authcode)
-//            R.id.btn_login ->
-//                mPresenter!!.login(et_account, et_pwd, tv_authcode)
-//            R.id.tv_authcode ->
-//                mPresenter!!.getAuthCode(et_account,et_img_authcode, tv_authcode)
-//            R.id.iv_img_authcode ->
-//                mPresenter!!.getImageAuthCode()
+            R.id.tv_authcode_login ->
+                mPresenter!!.invalidate(ll_img_authcode,et_account, et_pwd, tv_authcode, tv_authcode_login, iv_pwd_authcode)
+            R.id.btn_login ->
+                mPresenter!!.login(et_account, et_pwd, tv_authcode)
+            R.id.tv_authcode ->
+                mPresenter!!.getAuthCode(et_account,et_img_authcode, tv_authcode)
+            R.id.iv_img_authcode ->
+                mPresenter!!.getImageAuthCode()
 
         }
     }
@@ -87,6 +90,10 @@ class LoginActivity : MVPBaseActivity<LoginContract.View, LoginPresenter>(), Log
 
     override fun initListener() {
         super.initListener()
+        tv_authcode_login.setOnClickListener(this)
+        btn_login.setOnClickListener(this)
+        tv_authcode.setOnClickListener(this)
+        iv_img_authcode.setOnClickListener(this)
         et_pwd.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEND) {
                 mPresenter!!.login(et_account, et_pwd, tv_authcode)
