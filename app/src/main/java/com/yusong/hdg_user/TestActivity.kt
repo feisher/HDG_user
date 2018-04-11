@@ -18,7 +18,7 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_test)
-        textView.text = name+"\n 点击返回"
+        textView.text = name
         textView.setOnClickListener {
             finish()
         }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="1000pt">
+    <LinearLayout
+        android:id="@+id/webviwe"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="900pt"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0pt"
+            android:background="@color/color1"
+            android:layout_weight="1"
+            android:text="不同意"
+            android:textColor="@color/color4"
+            android:padding="10pt"
+            android:textSize="28pt"
+            android:layout_margin="10pt"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_affirm"
+            android:layout_width="0pt"
+            android:layout_margin="10pt"
+            android:text="同意"
+            android:textColor="@color/white"
+            android:textSize="28pt"
+            android:padding="10pt"
+            android:background="@color/color2"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

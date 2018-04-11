@@ -27,6 +27,7 @@ import com.yusong.yslib.Api
 
 import com.yusong.yslib.App
 import com.yusong.yslib.App.Companion.toast
+import com.yusong.yslib.Const
 import com.yusong.yslib.entity.Login1
 import com.yusong.yslib.event.EventCenter
 import com.yusong.yslib.http.GsonUtil
@@ -119,8 +120,8 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
                                 if (body.code === 0) {
                                     val data = body.data
                                     if (!AppUtils.isEmpty(data)) {
-                                        val token = data.token
-                                        val expireIn = data.expireIn
+                                        val token = data!!.token
+                                        val expireIn = data!!.expireIn
                                         val timeMillis = System.currentTimeMillis()
                                         App.TOKEN_CREATE_TIME = timeMillis
                                         SPUtils.put<String>(mView.context, SPUtils.K_TOKEN, token)
@@ -131,7 +132,7 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
                                         //                                        mView.gotoRealNameAuth();
                                     }
                                 } else {
-                                    toast(body.message)
+                                    toast(body.message!!)
                                 }
                             }
                         }
@@ -152,7 +153,7 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
                                 if (body.code === 0) {
                                     val data = body.data
                                     if (!AppUtils.isEmpty(data)) {
-                                        val token = data.token
+                                        val token = data!!.token
                                         val expireIn = data.expireIn
                                         val timeMillis = System.currentTimeMillis()
                                         App.TOKEN_CREATE_TIME = timeMillis
@@ -175,7 +176,7 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
                                 } else {
                                     if (!AppUtils.isEmpty(mView)) {
 
-                                        toast(body.message, TastyToast.WARNING)
+                                        toast(body.message!!, TastyToast.WARNING)
                                         mView.gotoPhoneAuth(mAccount)
                                     }
                                 }
@@ -268,7 +269,7 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
                         if (body.code === 0) {
                             val data = body.data
                             if (!AppUtils.isEmpty(data)) {
-                                downLoadImg(data, Api.BASEURL)
+                                downLoadImg(data!!, Api.BASEURL)
                             }
                         }
                     }

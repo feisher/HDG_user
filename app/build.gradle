@@ -74,10 +74,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testApi 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     implementation project(':yslib')
     implementation librarys["design"]
     implementation librarys["appcompat-v7"]
@@ -87,4 +84,5 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     kapt librarys["arouter-compiler"]
     implementation project(':plugin_login')
+//    implementation project(':plugin_regist')
 }

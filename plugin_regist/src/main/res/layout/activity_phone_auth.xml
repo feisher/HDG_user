@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color3">
+
+    <include layout="@layout/title2"
+        android:id="@+id/titleLayout"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="107pt"
+        android:layout_marginBottom="2pt"
+        android:layout_marginTop="2pt"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0pt"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="20pt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机验证"
+                android:textColor="@color/color1"
+                android:textSize="28pt" />
+            <ImageView
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_marginRight="20pt"
+                android:layout_marginLeft="20pt"
+                android:layout_marginTop="14pt"
+                android:layout_height="5pt"
+                android:background="@color/color1" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="21pt"
+            android:layout_height="36pt"
+            android:background="@mipmap/ic_right_arrow" />
+
+        <LinearLayout
+            android:layout_width="0pt"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="实名验证"
+                android:layout_marginTop="20pt"
+                android:textColor="@color/color4"
+                android:textSize="28pt" />
+            <ImageView
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_marginRight="20pt"
+                android:layout_marginLeft="20pt"
+                android:layout_marginTop="14pt"
+                android:layout_height="5pt"
+                android:background="@color/white" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="21pt"
+            android:layout_height="36pt"
+            android:background="@mipmap/ic_right_arrow" />
+
+        <LinearLayout
+            android:layout_width="0pt"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="押金充值"
+                android:layout_marginTop="20pt"
+                android:textColor="@color/color4"
+                android:textSize="28pt" />
+            <ImageView
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_marginRight="20pt"
+                android:layout_marginLeft="20pt"
+                android:layout_marginTop="14pt"
+                android:layout_height="5pt"
+                android:background="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="96pt"
+            android:layout_marginLeft="46pt"
+            android:layout_marginRight="46pt"
+            android:layout_marginTop="30pt"
+            android:background="@drawable/shape_bg_edittext"
+            android:drawableLeft="@mipmap/ic_phone"
+            android:drawablePadding="15pt"
+            android:hint="输入手机号码"
+            android:inputType="phone"
+            android:paddingLeft="32pt"
+            android:textSize="30pt" />
+        <LinearLayout
+            android:id="@+id/ll_img_authcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36pt"
+            android:layout_marginLeft="46pt"
+            android:layout_marginRight="46pt"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="0pt"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/et_img_authcode"
+                    android:background="@drawable/shape_bg_edittext"
+                    android:hint="请输入图片验证码"
+                    android:textSize="28pt"
+                    android:paddingLeft="85pt"
+                    android:layout_width="match_parent"
+                    android:layout_height="96pt"
+                    android:imeOptions="actionSend"
+                    android:singleLine="true"
+                    />
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="32pt"
+                    android:background="@mipmap/ic_pic"
+                    android:layout_width="38pt"
+                    android:layout_height="38pt" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_img_authcode"
+                android:text="获取验证码"
+                android:gravity="center"
+                android:scaleType="fitXY"
+                android:background="@color/color3"
+                android:layout_marginLeft="10pt"
+                android:layout_width="230pt"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36pt"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/et_auth_code"
+                android:layout_width="420pt"
+                android:layout_height="96pt"
+                android:layout_marginLeft="46pt"
+                android:layout_marginTop="36pt"
+                android:background="@drawable/shape_bg_edittext"
+                android:drawableLeft="@mipmap/ic_sms"
+                android:drawablePadding="15pt"
+                android:hint="输入验证码"
+                android:paddingLeft="32pt"
+                android:textSize="30pt" />
+
+            <TextView
+                android:id="@+id/tv_get_auth_code"
+                android:layout_width="240pt"
+                android:layout_height="96pt"
+                android:layout_marginLeft="10pt"
+                android:layout_marginTop="36pt"
+                android:background="@drawable/shape_round_rect_yellow"
+                android:gravity="center"
+                android:text="获取验证码"
+                android:textColor="@color/white"
+                android:textSize="30pt" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="0pt"/>-->
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/btn_next"
+        android:text="下一步"
+        android:textSize="34pt"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_round_rect_blue"
+        android:layout_margin="50pt"
+        android:layout_width="match_parent"
+        android:layout_height="89pt" />
+
+</LinearLayout>

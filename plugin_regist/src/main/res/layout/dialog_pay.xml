@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#FFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="649pt">
+    <TextView
+        android:layout_marginTop="46pt"
+        android:layout_marginLeft="39pt"
+        android:textSize="40pt"
+        android:text="支付方式"
+        android:textColor="#4D4D4D"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_marginTop="17pt"
+        android:layout_marginLeft="39pt"
+        android:textSize="26pt"
+        android:text="押金随时可退，返还到原来账户"
+        android:textColor="#4D4D4D"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/ll_balance_pay"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="39pt"
+        android:paddingRight="39pt"
+        android:gravity="center_vertical"
+        android:layout_height="116pt">
+        <ImageView
+            android:background="@mipmap/ic_balance_pay"
+            android:layout_width="64pt"
+            android:layout_height="64pt" />
+        <TextView
+            android:paddingLeft="21pt"
+            android:text="余额支付"
+            android:textSize="36pt"
+            android:layout_width="0pt"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <com.yusong.yslib.view.SmoothCheckBox
+            android:id="@+id/scb_balance_pay"
+            android:layout_width="37pt"
+            android:layout_height="37pt" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="39pt"
+        android:background="@drawable/shape_divider"
+        android:layout_height="2pt"/>
+    <LinearLayout
+        android:id="@+id/ll_wx_pay"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="39pt"
+        android:paddingRight="39pt"
+        android:gravity="center_vertical"
+        android:layout_height="116pt">
+        <ImageView
+            android:background="@mipmap/ic_wechat"
+            android:layout_width="64pt"
+            android:layout_height="64pt" />
+        <TextView
+            android:paddingLeft="21pt"
+            android:text="微信支付"
+            android:textSize="36pt"
+            android:layout_width="0pt"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <com.yusong.yslib.view.SmoothCheckBox
+            android:id="@+id/scb_wx_pay"
+            android:layout_width="37pt"
+            android:layout_height="37pt" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="39pt"
+        android:background="@drawable/shape_divider"
+        android:layout_height="2pt"/>
+    <LinearLayout
+        android:id="@+id/ll_alipay"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="39pt"
+        android:paddingRight="39pt"
+        android:gravity="center_vertical"
+        android:layout_height="116pt">
+        <ImageView
+            android:background="@mipmap/ic_alipay"
+            android:layout_width="64pt"
+            android:layout_height="64pt" />
+        <TextView
+            android:paddingLeft="21pt"
+            android:text="支付宝支付"
+            android:textSize="36pt"
+            android:layout_width="0pt"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <com.yusong.yslib.view.SmoothCheckBox
+            android:id="@+id/scb_alipay"
+            android:layout_width="37pt"
+            android:layout_height="37pt" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_pay"
+        android:text="去支付"
+        android:textColor="#fff"
+        android:textSize="36pt"
+        android:background="@color/color2"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="38pt"
+        android:layout_marginRight="38pt"
+        android:layout_marginTop="25pt"
+        android:layout_marginBottom="25pt"
+        android:layout_height="97pt" />
+</LinearLayout>
