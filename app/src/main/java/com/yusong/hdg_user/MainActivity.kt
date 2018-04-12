@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import kotlinx.android.synthetic.main.activity_main.*
-@Route(path = "/test/MainActivity")
+@Route(path = "/user/MainActivity")
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,8 +15,7 @@ class MainActivity : AppCompatActivity() {
         tv.text = "点击跳转登陆页面";
         tv.setOnClickListener {
             ARouter.getInstance()
-                    .build("/user/LoginActivity")
-                    .withString("name","从主页面传递的数据")
+                    .build("/login/LoginActivity")
                     .navigation()
         }
     }

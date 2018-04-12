@@ -42,8 +42,8 @@ import java.text.DecimalFormat
  * @explain 支付押金界面（押金充值）
  * @time 2017/11/6 15:26.
  */
-@WX(packageName = "com.yusong.plugin_regist")
-@Route(path = "/user/CashPledgeActivity")
+//@WX(packageName = "com.yusong.plugin_regist")
+@Route(path = "/regist/CashPledgeActivity")
 class CashPledgeActivity : MVPBaseActivity<CashPledgeContract.View, CashPledgePresenter>(), CashPledgeContract.View, BaseQuickAdapter.OnItemClickListener, View.OnClickListener {
 
     private var cashPledgeAdapter: CashPledgeAdapter? = null
@@ -248,28 +248,28 @@ class CashPledgeActivity : MVPBaseActivity<CashPledgeContract.View, CashPledgePr
     }
 
     override fun payByWeChatCallback(data: Pay2) {
-        RxPay(this).requestWXpay(JSONObject(GsonUtil.toJson(data)))
-                .subscribe( Consumer<Boolean>{
-                    if (it) {
-                        toast("付款成功",TastyToast.SUCCESS)
-                        finish()
-                    }
-                },  Consumer<Throwable>() {
-                    toast("付款失败："+it.message)
-                })
+//        RxPay(this).requestWXpay(JSONObject(GsonUtil.toJson(data)))
+//                .subscribe( Consumer<Boolean>{
+//                    if (it) {
+//                        toast("付款成功",TastyToast.SUCCESS)
+//                        finish()
+//                    }
+//                },  Consumer<Throwable>() {
+//                    toast("付款失败："+it.message)
+//                })
 
     }
 
     override fun payByAliPayCallback(data: Pay1) {
-        RxPay(this).requestAlipay(GsonUtil.toJson(data))
-                .subscribe( Consumer<Boolean>{
-                    if (it) {
-                        toast("付款成功",TastyToast.SUCCESS)
-                        finish()
-                    }
-                },  Consumer<Throwable>() {
-                    toast("付款失败："+it.message)
-                })
+//        RxPay(this).requestAlipay(GsonUtil.toJson(data))
+//                .subscribe( Consumer<Boolean>{
+//                    if (it) {
+//                        toast("付款成功",TastyToast.SUCCESS)
+//                        finish()
+//                    }
+//                },  Consumer<Throwable>() {
+//                    toast("付款失败："+it.message)
+//                })
     }
 
 

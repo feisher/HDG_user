@@ -35,11 +35,13 @@
 
         <TextView
             android:id="@+id/tv_title"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="80pt"
             android:layout_centerInParent="true"
+            android:textStyle="bold"
             android:text="@string/app_name"
-            android:textColor="@color/half_translucent"
+            android:textColor="@color/white"
             android:textSize="34pt" />
 
         <TextView

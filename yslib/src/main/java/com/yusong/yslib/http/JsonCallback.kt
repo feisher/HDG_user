@@ -84,11 +84,11 @@ abstract class JsonCallback<T> : AbsCallback<T>() {
                 return o as T
             } else if (code == 3) {
                 toast("登陆超时",TastyToast.WARNING)
-                ARouter.getInstance().build("/user/LoginActivity").navigation()
+                ARouter.getInstance().build("/login/LoginActivity").navigation()
                 throw IllegalStateException("" + o.message!!)
             } else if (code == 7) {
                 toast("账号在其他设备登陆",TastyToast.WARNING)
-                ARouter.getInstance().build("/user/LoginActivity").navigation()
+                ARouter.getInstance().build("/login/LoginActivity").navigation()
                 throw IllegalStateException("" + o.message!!)//账号在其他设备登陆
             } else {
                 throw IllegalStateException("" + o.message!!)

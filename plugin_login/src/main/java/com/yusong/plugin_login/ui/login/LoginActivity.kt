@@ -19,7 +19,7 @@ import java.io.File
 
 import kotlinx.android.synthetic.main.activity_login.*
 
-@Route(path = "/user/LoginActivity")
+@Route(path = "/login/LoginActivity")
 class LoginActivity : MVPBaseActivity<LoginContract.View, LoginPresenter>(), LoginContract.View, View.OnClickListener {
 
     override fun layoutId(): Int {
@@ -28,6 +28,7 @@ class LoginActivity : MVPBaseActivity<LoginContract.View, LoginPresenter>(), Log
 
    
     override fun initData() {
+        ARouter.getInstance().inject(this)
         val tv_back = titleLayout.findViewById<TextView>(R.id.tv_back)
         val tv_title = titleLayout.findViewById<TextView>(R.id.tv_title)
         tv_back.visibility = View.VISIBLE
@@ -51,7 +52,9 @@ class LoginActivity : MVPBaseActivity<LoginContract.View, LoginPresenter>(), Log
             R.id.tv_authcode_login ->
                 mPresenter!!.invalidate(ll_img_authcode,et_account, et_pwd, tv_authcode, tv_authcode_login, iv_pwd_authcode)
             R.id.btn_login ->
-                mPresenter!!.login(et_account, et_pwd, tv_authcode)
+//                mPresenter!!.login(et_account, et_pwd, tv_authcode)
+                //todo 暫為演示邏輯，正常使用上方忘了請求
+            ARouter.getInstance().build("/regist/PhoneAuthActivity").navigation()
             R.id.tv_authcode ->
                 mPresenter!!.getAuthCode(et_account,et_img_authcode, tv_authcode)
             R.id.iv_img_authcode ->
@@ -67,12 +70,12 @@ class LoginActivity : MVPBaseActivity<LoginContract.View, LoginPresenter>(), Log
     }
 
     override fun gotoPhoneAuth(tel: String) {
-        ARouter.getInstance().build("/user/PhoneAuthActivity").navigation()
+        ARouter.getInstance().build("/regist/PhoneAuthActivity").navigation()
         finish()
     }
 
     override fun gotoRealNameAuth() {
-        ARouter.getInstance().build("/user/RealNameAuthActivity").navigation()
+        ARouter.getInstance().build("/regist/RealNameAuthActivity").navigation()
         finish()
     }
 

@@ -15,7 +15,7 @@ import com.yusong.plugin_regist.R
 import kotlinx.android.synthetic.main.activity_phone_auth.*
 import java.io.File
 
-@Route(path = "/user/PhoneAuthActivity")
+@Route(path = "/regist/PhoneAuthActivity")
 class PhoneAuthActivity : MVPBaseActivity<PhoneAuthContract.View, PhoneAuthPresenter>(), PhoneAuthContract.View, View.OnClickListener {
     @Autowired
     @JvmField var tel: String? = ""
@@ -46,13 +46,16 @@ class PhoneAuthActivity : MVPBaseActivity<PhoneAuthContract.View, PhoneAuthPrese
         when (v!!.id) {
             R.id.tv_back -> finish()
             R.id.tv_get_auth_code -> mPresenter!!.getAuthCode(et_phone_number, et_img_authcode, tv_get_auth_code)
-            R.id.btn_next -> mPresenter!!.regist(et_phone_number, et_auth_code)
+            R.id.btn_next ->
+//                mPresenter!!.regist(et_phone_number, et_auth_code)
+                //todo 暫為演示邏輯，正常使用上方忘了請求
+                ARouter.getInstance().build("/me/UserCenterActivity").navigation()
             R.id.iv_img_authcode -> mPresenter!!.getImageAuthCode()
         }
     }
 
     override fun registCallback() {
-        ARouter.getInstance().build("/user/RealNameAuthActivity").withString("tel","").navigation()
+        ARouter.getInstance().build("/regist/RealNameAuthActivity").withString("tel","").navigation()
         finish()
     }
 

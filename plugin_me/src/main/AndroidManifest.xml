@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yusong.plugin_login">
+    package="com.yusong.plugin_me">
 
     <application>
-
-        <activity android:name=".ui.login.LoginActivity"/>
+        <activity android:name=".UserCenterActivity"></activity>
     </application>
 
 </manifest>

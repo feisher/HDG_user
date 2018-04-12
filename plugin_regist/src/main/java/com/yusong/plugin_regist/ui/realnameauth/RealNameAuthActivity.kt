@@ -23,7 +23,7 @@ import com.yusong.yslib.Const
 import com.yusong.yslib.toast
 import kotlinx.android.synthetic.main.activity_real_name_auth.*
 
-@Route(path = "/user/RealNameAuthActivity")
+@Route(path = "/regist/RealNameAuthActivity")
 class RealNameAuthActivity : MVPBaseActivity<RealNameAuthContract.View, RealNameAuthPresenter>(), RealNameAuthContract.View, View.OnClickListener {
 
     var companyData: MutableList<String> = ArrayList()

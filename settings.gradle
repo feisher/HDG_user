@@ -1,1 +1,1 @@
-include ':app', ':yslib', ':plugin_login', ':plugin_regist'
+include ':app', ':yslib', ':plugin_login', ':plugin_regist', ':plugin_me'

@@ -37,10 +37,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testApi 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     api librarys["appcompat-v7"]
     api librarys["multidex"]
     api librarys["toast"]

@@ -686,15 +686,15 @@ public final class R {
         public static int text2 = 0x7f0c00cb;
         public static int textSpacerNoButtons = 0x7f0c00cc;
         public static int textSpacerNoTitle = 0x7f0c00cd;
-        public static int time = 0x7f0c00d2;
-        public static int title = 0x7f0c00d3;
-        public static int titleDividerNoCustom = 0x7f0c00d4;
-        public static int title_template = 0x7f0c00d7;
-        public static int top = 0x7f0c00d9;
-        public static int topPanel = 0x7f0c00da;
-        public static int uniform = 0x7f0c00ea;
-        public static int up = 0x7f0c00eb;
-        public static int wrap_content = 0x7f0c00f3;
+        public static int time = 0x7f0c00d1;
+        public static int title = 0x7f0c00d2;
+        public static int titleDividerNoCustom = 0x7f0c00d3;
+        public static int title_template = 0x7f0c00d6;
+        public static int top = 0x7f0c00d8;
+        public static int topPanel = 0x7f0c00d9;
+        public static int uniform = 0x7f0c00e9;
+        public static int up = 0x7f0c00ea;
+        public static int wrap_content = 0x7f0c00f2;
     }
     public static final class integer {
         public static int abc_config_activityDefaultDur = 0x7f0d0001;
@@ -731,16 +731,16 @@ public final class R {
         public static int abc_search_view = 0x7f0f001a;
         public static int abc_select_dialog_material = 0x7f0f001b;
         public static int abc_tooltip = 0x7f0f001c;
-        public static int notification_action = 0x7f0f0040;
-        public static int notification_action_tombstone = 0x7f0f0041;
-        public static int notification_template_custom_big = 0x7f0f0048;
-        public static int notification_template_icon_group = 0x7f0f0049;
-        public static int notification_template_part_chronometer = 0x7f0f004e;
-        public static int notification_template_part_time = 0x7f0f004f;
-        public static int select_dialog_item_material = 0x7f0f0051;
-        public static int select_dialog_multichoice_material = 0x7f0f0052;
-        public static int select_dialog_singlechoice_material = 0x7f0f0053;
-        public static int support_simple_spinner_dropdown_item = 0x7f0f0055;
+        public static int notification_action = 0x7f0f003f;
+        public static int notification_action_tombstone = 0x7f0f0040;
+        public static int notification_template_custom_big = 0x7f0f0047;
+        public static int notification_template_icon_group = 0x7f0f0048;
+        public static int notification_template_part_chronometer = 0x7f0f004d;
+        public static int notification_template_part_time = 0x7f0f004e;
+        public static int select_dialog_item_material = 0x7f0f0050;
+        public static int select_dialog_multichoice_material = 0x7f0f0051;
+        public static int select_dialog_singlechoice_material = 0x7f0f0052;
+        public static int support_simple_spinner_dropdown_item = 0x7f0f0054;
     }
     public static final class string {
         public static int abc_action_bar_home_description = 0x7f150001;
