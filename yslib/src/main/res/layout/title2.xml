@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/iv_adaptive_down_api18"
         android:layout_width="match_parent"
-        android:layout_height="36pt"
+        android:layout_height="40pt"
         android:background="@drawable/shape_bg_shade"
         android:visibility="visible"/>
 
